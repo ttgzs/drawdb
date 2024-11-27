@@ -22,7 +22,7 @@ jobs:
     - name: Log in to tjjs
       uses: docker/login-action@v3
       with:
-        registry: ${{ CONTEXT.HARBOR_SERVER}}
+        registry: ${{ vars.HARBOR_SERVER}}
         username: ${{ secrets.HARBOR_USER }}
         password: ${{ secrets.HARBOR_PWD }}
     
@@ -30,6 +30,6 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         push: true
-        tags: ${{HARBOR_SERVER}}/${{ github.repository }}:latest,${{HARBOR_SERVER}}/${{ github.repository }}:${{ github.ref_name }}
+        tags: ${{vars.HARBOR_SERVER}}/${{ github.repository }}:latest,${{vars.HARBOR_SERVER}}/${{ github.repository }}:${{ github.ref_name }}
         platforms: linux/amd64,linux/arm64
 
