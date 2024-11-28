@@ -30,6 +30,6 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         push: true
-        tags: ${{vars.HARBOR_SERVER}}/${{ github.repository }}:latest,${{vars.HARBOR_SERVER}}/${{ github.repository }}:${{ github.ref_name }}
+        tags: ${{vars.HARBOR_SERVER}}/library/${{ github.repository }}:latest,${{vars.HARBOR_SERVER}}/library/${{ github.repository }}:${{ github.ref_name }}
         platforms: linux/amd64,linux/arm64
 
